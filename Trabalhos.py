@@ -31,8 +31,8 @@ while acesso:
         if acesso != senha:
             while contador > 0:
                 print("Senha incorreta.", contador, "tentativas restantes.")
-                acesso = int(input("Por favor, digite sua senha novamente.\n"))
                 contador = contador - 1
+                acesso = int(input("Por favor, digite sua senha novamente.\n"))
 
             if contador == 0:
                 print("Tentativas excedidas, tente novamente mais tarde.")
