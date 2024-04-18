@@ -5,9 +5,9 @@ passagem_reserva = 6
 contador = 2
 acesso = True
 confirma_senha = 0
-domingo = 'N'
+domingo = False
 tarifa_domingo = passagem * 0.5
-while acesso:
+while acesso == True:
     usuario = int(input('Qual é o seu cartão de acesso?\n'
                         'Usuário - 1\n'
                         'Administrador - 2\n'
@@ -51,7 +51,6 @@ while acesso:
                 break
         if contador == 0:
             print('Tentativas excedidas, tente novamente mais tarde.\n')
-            break
 
         elif confirma_senha == senha:
             contador = 2
@@ -66,13 +65,13 @@ while acesso:
                     print(f'O cartão possui {saldo_atual} créditos.\n')
 
                 elif menu2 == 2:
-                    if domingo == 'N':
+                    if domingo == False:
                         passagem = float(input('Qual o novo valor da passagem?\n'))
                         print(f'O valor da passagem foi definido para {passagem}\n')
                         passagem_reserva = passagem
                         tarifa_domingo = passagem * 0.5
                         print(f'Se hoje fosse domingo, a passagem seria {tarifa_domingo}\n')
-                    elif domingo == 'S':
+                    elif domingo == True:
                         passagem = float(input('Qual o novo valor da passagem?\n'))
                         print(f'O valor da passagem foi definido para {passagem}\n')
                         passagem_reserva = passagem
@@ -80,12 +79,12 @@ while acesso:
                         passagem = tarifa_domingo
                         print(f'Como hoje é domingo, a passagem será {passagem}\n')
                 elif menu2 == 3:
-                    if domingo == 'N':
-                        domingo = 'S'
+                    if domingo == False:
+                        domingo = True
                         passagem = tarifa_domingo
                         print('Tarifa de Domingo Ativada.\n')
                     else:
-                        domingo = 'N'
+                        domingo = False
                         passagem = passagem_reserva
                         print('Tarifa de Domingo Desativada.\n')
                     pass
